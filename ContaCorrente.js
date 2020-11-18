@@ -6,9 +6,6 @@ import { Cliente } from "./Cliente.js"; // auto import da palavra reservada inst
     agencia;
     _cliente;
 
-
-    _saldo = 0; //atributo da classe ContaCorrente é privado
-
     
     // ---------------------------------------------------------
     // Regra de proteção para atributos privados
@@ -33,6 +30,7 @@ import { Cliente } from "./Cliente.js"; // auto import da palavra reservada inst
     constructor(agencia, cliente){
         this.agencia = agencia;
         this.cliente = cliente;      // ja possui acessor então não precisa definir como privado
+        this._saldo = 0;              //atributo da classe ContaCorrente é privado   
         ContaCorrente.numeroDeContas += 1;    // atribui a contagem sempre +1 
     }
 
