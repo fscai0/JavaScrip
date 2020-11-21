@@ -4,7 +4,9 @@ export class Conta{
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
-        
+        if(this.constructor == Conta){
+            console.log("voce não devarias instaciar esse objeto do tipo Conta");
+        }
     }
 
     // ---------------------------------------------------------
@@ -27,13 +29,15 @@ export class Conta{
 
 
     sacar(valor) { 
-        let taxa = 1
+        let taxa = 1;
+        return this._sacar(valor , taxa);   
+    }
+    _sacar(valor, taxa){
         const valorSacado = taxa * valor;  
-
-        if (this._saldo >= valorSacado) {
+            if (this._saldo >= valorSacado) {
                 this._saldo -= valorSacado;
                 return valorSacado;
-        }
+            }
     }
 
     depositar(valor){
@@ -47,4 +51,6 @@ export class Conta{
         const valorSacado = this.sacar(valor);
         conta.depositar(valorSacado);
     }
+
+  
 }

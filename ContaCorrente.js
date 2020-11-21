@@ -10,4 +10,11 @@ import { Conta } from "./Conta.js";
         ContaCorrente.numeroDeContas += 1;    // atribui a contagem sempre +1 
     }
 
+    // sobre escrevendo o metodo da classe Mae 
+    sacar(valor) { 
+        let taxa = 1.1;
+        return this._sacar(valor , taxa); 
+    }
+
+
 }
