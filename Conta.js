@@ -1,12 +1,17 @@
+// classe Abstrata nao pode ser intanciada mas sim sempre erdada
+
 export class Conta{
 
     constructor (saldoInicial, cliente, agencia){
+
+        if(this.constructor == Conta){
+            throw new Error("voce não devarias instanciar esse objeto do tipo Conta Diretamente");
+         }
+
         this._saldo = saldoInicial;
         this._cliente = cliente;
         this._agencia = agencia;
-        if(this.constructor == Conta){
-            console.log("voce não devarias instaciar esse objeto do tipo Conta");
-        }
+        
     }
 
     // ---------------------------------------------------------
@@ -28,9 +33,13 @@ export class Conta{
      // ---------------------------------------------------------
 
 
-    sacar(valor) { 
-        let taxa = 1;
-        return this._sacar(valor , taxa);   
+    sacar(valor) {
+
+    // Método abstrato  
+    
+    throw new Error("O método Sacar da conta é abstrator e precisa ser sobreescrevido");
+       // let taxa = 1;
+       // return this._sacar(valor , taxa);   
     }
     _sacar(valor, taxa){
         const valorSacado = taxa * valor;  
@@ -41,7 +50,7 @@ export class Conta{
     }
 
     depositar(valor){
-        if(valor <= 100){
+        if(valor <= 0){
             return;     // EARLY RETURN
         }
         this._saldo += valor;
